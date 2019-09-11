@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                 (int)this.getResources().getDimension(R.dimen.mainLL_padding),
                 (int)this.getResources().getDimension(R.dimen.mainLL_padding)
         );
-        
+
         //LayoutParams
         LinearLayout.LayoutParams mainLLParams =
                 new LinearLayout.LayoutParams(

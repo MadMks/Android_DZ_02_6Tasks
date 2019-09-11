@@ -7,13 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="@dimen/mainLL_padding">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#B8FFA7">
+        android:background="@color/colorLightGreen">
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#FFB3B3">
+        android:background="@color/colorLightRed">
 
         <GridLayout
             android:layout_width="wrap_content"
