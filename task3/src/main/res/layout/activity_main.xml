@@ -33,19 +33,22 @@
                 android:layout_height="wrap_content"
                 android:textSize="14pt"
                 android:text="Красный"
-                android:id="@+id/cbRed"/>
+                android:id="@+id/cbRed"
+                android:onClick="ClickCheckBox"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14pt"
                 android:text="Зеленый"
-                android:id="@+id/cbGreen"/>
+                android:id="@+id/cbGreen"
+                android:onClick="ClickCheckBox"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14pt"
                 android:text="Синий"
-                android:id="@+id/cbBlue"/>
+                android:id="@+id/cbBlue"
+                android:onClick="ClickCheckBox"/>
 
         </LinearLayout>
 
