@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBoxRed;
     private CheckBox checkBoxGreen;
     private CheckBox checkBoxBlue;
-
-//    private CheckedChangeListener checkedChangeListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         checkBoxRed = findViewById(R.id.cbRed);
         checkBoxGreen = findViewById(R.id.cbGreen);
         checkBoxBlue = findViewById(R.id.cbBlue);
-
-//        checkedChangeListener = new CheckedChangeListener(mainLLayout);
     }
 
     public void ClickCheckBox(View view) {
@@ -44,6 +41,22 @@ public class MainActivity extends AppCompatActivity {
         layoutColor = Color.rgb(red, green, blue);
 
         mainLLayout.setBackgroundColor(layoutColor);
+        SetProgramTextColor(InvertColor(red, green, blue));
+    }
+
+    private int InvertColor(int red, int green, int blue) {
+
+        red = red == 255 ? 0 : 255;
+        green = green == 255 ? 0 : 255;
+        blue = blue == 255 ? 0 : 255;
+
+        int invertColor = Color.rgb(red, green, blue);
+
+        return invertColor;
+    }
+
+    private void SetProgramTextColor(int layoutColor) {
+
         checkBoxRed.setTextColor(layoutColor);
     }
 }
