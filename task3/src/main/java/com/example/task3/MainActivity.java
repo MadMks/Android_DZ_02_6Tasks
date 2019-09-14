@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout mainLLayout;
+    private TextView tvHeader;
     private CheckBox checkBoxRed;
     private CheckBox checkBoxGreen;
     private CheckBox checkBoxBlue;
@@ -22,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainLLayout = findViewById(R.id.mainLLayout);
-
+        tvHeader = findViewById(R.id.tvHeader);
         checkBoxRed = findViewById(R.id.cbRed);
         checkBoxGreen = findViewById(R.id.cbGreen);
         checkBoxBlue = findViewById(R.id.cbBlue);
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void SetProgramTextColor(int layoutColor) {
 
+        tvHeader.setTextColor(layoutColor);
+
         checkBoxRed.setTextColor(layoutColor);
+        checkBoxGreen.setTextColor(layoutColor);
+        checkBoxBlue.setTextColor(layoutColor);
     }
 }

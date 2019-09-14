@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:textSize="14pt"
         android:text="Комбинации цветов"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tvHeader"/>
 
 
     <FrameLayout
