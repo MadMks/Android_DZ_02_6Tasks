@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">task3</string>
+    <string name="header">Комбинации цветов</string>
+    <string name="cb_red">Красный</string>
+    <string name="cb_green">Зеленый</string>
+    <string name="cb_blue">Синий</string>
 </resources>

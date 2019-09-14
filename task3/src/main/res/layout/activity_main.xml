@@ -13,46 +13,42 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14pt"
-        android:text="Комбинации цветов"
+        android:textSize="@dimen/sizeText"
+        android:layout_marginTop="@dimen/marginTop"
+        android:text="@string/header"
         android:layout_gravity="center_horizontal"
         android:id="@+id/tvHeader"/>
 
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/marginTop">
 
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14pt"
-                android:text="Красный"
+                android:textSize="@dimen/sizeText"
+                android:text="@string/cb_red"
                 android:id="@+id/cbRed"
                 android:onClick="ClickCheckBox"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14pt"
-                android:text="Зеленый"
+                android:textSize="@dimen/sizeText"
+                android:text="@string/cb_green"
                 android:id="@+id/cbGreen"
                 android:onClick="ClickCheckBox"/>
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14pt"
-                android:text="Синий"
+                android:textSize="@dimen/sizeText"
+                android:text="@string/cb_blue"
                 android:id="@+id/cbBlue"
                 android:onClick="ClickCheckBox"/>
 
         </LinearLayout>
-
-    </FrameLayout>
 
 </LinearLayout>
