@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextYear;
 
     private SimpleAdapter filmAdapter;
+    private ArrayList<Map<String, Object>> filmList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         editTextGenre = findViewById(R.id.editTextGenre);
         editTextYear = findViewById(R.id.editTextYear);
 
-        ArrayList<Map<String, Object>> filmList = new ArrayList<>();
+        filmList = new ArrayList<>();
 
         for (int i = 0; i < films.length; i++)
         {
@@ -96,7 +97,16 @@ public class MainActivity extends AppCompatActivity {
         else {
             // Добавление нового фильма в адаптер
             // TODO реализовать добавление фильма
-//            filmAdapter.
+            HashMap<String, Object> filmItem = new HashMap<>();
+            filmItem.put("Title", title);
+            filmItem.put("Genre", genre);
+            filmItem.put("Year", year);
+            filmList.add(filmItem);
+
+            Toast.makeText(this,
+                    "Фильм добавлен",
+                    Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 }
