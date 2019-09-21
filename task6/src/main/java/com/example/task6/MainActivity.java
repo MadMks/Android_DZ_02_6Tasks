@@ -3,8 +3,11 @@ package com.example.task6;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,12 +24,22 @@ public class MainActivity extends AppCompatActivity {
                 new Film("Хоббит: Пустошь Смауга", "Фэнтези", 2013)
             };
 
+    private EditText editTextTitle;
+    private EditText editTextGenre;
+    private EditText editTextYear;
+
+    private SimpleAdapter filmAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Spinner spinnerFilms = findViewById(R.id.spinnerFilms);
+
+        editTextTitle = findViewById(R.id.editTextTitle);
+        editTextGenre = findViewById(R.id.editTextGenre);
+        editTextYear = findViewById(R.id.editTextYear);
 
         ArrayList<Map<String, Object>> filmList = new ArrayList<>();
 
@@ -52,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // Адаптер
-        SimpleAdapter filmAdapter = new SimpleAdapter(
+        filmAdapter = new SimpleAdapter(
                 this,
                 filmList,
                 R.layout.spiner_item,
@@ -65,5 +78,25 @@ public class MainActivity extends AppCompatActivity {
         spinnerFilms.setAdapter(filmAdapter);
 
 
+    }
+
+    public void addClick(View view) {
+
+        String title = editTextTitle.getText().toString();
+        String genre = editTextGenre.getText().toString();
+        String year = editTextYear.getText().toString();
+
+        if (title.isEmpty() || genre.isEmpty() || year.isEmpty()){
+
+            Toast.makeText(this,
+                    "Нужно заполнить все поля",
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
+        else {
+            // Добавление нового фильма в адаптер
+            // TODO реализовать добавление фильма
+//            filmAdapter.
+        }
     }
 }
