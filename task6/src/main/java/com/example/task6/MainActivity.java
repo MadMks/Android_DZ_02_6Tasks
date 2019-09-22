@@ -1,8 +1,10 @@
 package com.example.task6;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.SimpleAdapter;
@@ -14,6 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final static String BUNDLE_KEY_TITLE = "keyTitle";
+    private final static String BUNDLE_KEY_GENRE = "keyGenre";
+    private final static String BUNDLE_KEY_YEAR = "keyYear";
+
+    private final static String BUNDLE_KEY_ADAPTER = "keyAdapter";
 
     private Film[] films =
             {
@@ -29,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextYear;
 
     private SimpleAdapter filmAdapter;
-    private ArrayList<Map<String, Object>> filmList;
+    private static ArrayList<Map<String, Object>> filmList;
+
+
+    // Methods
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +53,27 @@ public class MainActivity extends AppCompatActivity {
         editTextGenre = findViewById(R.id.editTextGenre);
         editTextYear = findViewById(R.id.editTextYear);
 
-        filmList = new ArrayList<>();
-
-        for (int i = 0; i < films.length; i++)
-        {
-            HashMap<String, Object> filmItem = new HashMap<>();
-
-            filmItem.put("Title", films[i].title);
-            filmItem.put("Genre", films[i].genre);
-            filmItem.put("Year", films[i].year);
-
-            filmList.add(filmItem);
+        // Восстановление данных если поворачивали устройство.
+        if (savedInstanceState != null){
+            editTextTitle.setText(savedInstanceState.getString(BUNDLE_KEY_TITLE));
+            editTextGenre.setText(savedInstanceState.getString(BUNDLE_KEY_GENRE));
+            editTextYear.setText(savedInstanceState.getString(BUNDLE_KEY_YEAR));
         }
+        else{
+            filmList = new ArrayList<>();
+
+            for (int i = 0; i < films.length; i++)
+            {
+                HashMap<String, Object> filmItem = new HashMap<>();
+
+                filmItem.put("Title", films[i].title);
+                filmItem.put("Genre", films[i].genre);
+                filmItem.put("Year", films[i].year);
+
+                filmList.add(filmItem);
+            }
+        }
+
 
         // Для адаптера
         String[] from = new String[] {
@@ -77,8 +97,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Назначение списку spinnerFilms адаптера данных.
         spinnerFilms.setAdapter(filmAdapter);
+    }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
 
+        outState.putString(BUNDLE_KEY_TITLE, editTextTitle.getText().toString());
+        outState.putString(BUNDLE_KEY_GENRE, editTextGenre.getText().toString());
+        outState.putString(BUNDLE_KEY_YEAR, editTextYear.getText().toString());
     }
 
     public void addClick(View view) {
@@ -96,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             // Добавление нового фильма в адаптер
-            // TODO реализовать добавление фильма
             HashMap<String, Object> filmItem = new HashMap<>();
             filmItem.put("Title", title);
             filmItem.put("Genre", genre);
